@@ -437,10 +437,10 @@ function keyHandler(event) {
       ship.w  += 0.4;
       break;
     case "ArrowUp": // Avanzar
-      ship.v += 0.09;
+      ship.v += 0.06;
       break;
     case "ArrowDown": // Retroceder
-      ship.v -= 0.09;
+      ship.v -= 0.06;
       break;
 
     case "v": // Disparar
