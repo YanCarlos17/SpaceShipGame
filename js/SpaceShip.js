@@ -45,8 +45,8 @@ function Triangle (id, x, y, distToCentX, distToCentY, color, v, theta) {
 		var dt = now - this.t;
 
     // Actualización de parámetros
-	this.t = now;
-	this.theta += this.w * (dt/1000.0);
+		this.t = now;
+		this.theta += this.w * (dt/1000.0);
     this.x += this.v * Math.cos(this.theta) * dt;
     this.y += this.v * Math.sin(this.theta) * dt;
 
@@ -99,29 +99,30 @@ function Triangle (id, x, y, distToCentX, distToCentY, color, v, theta) {
     }
 	}
 
-  // Método para dibujar la nave
+  // Método para dibujar el triángulo
 	this.draw = function() {
-    var nave = document.getElementById('spaceship');
+
     // Salvar el contexto
-	ctx.save();
-    ctx.drawImage(nave, this.x, this.y,90,90);    
-    // Traslación, rotación y escalado de la nave
-	ctx.translate(this.x, this.y);
-	ctx.rotate(this.theta);
-	ctx.scale(this.distToCentX, this.distToCentY);
+		ctx.save();
+
+    // Traslación, rotación y escalado del triángulo
+		ctx.translate(this.x, this.y);
+		ctx.rotate(this.theta);
+		ctx.scale(this.distToCentX, this.distToCentY);
 
     // Trazado del triángulo
-		// ctx.beginPath();
-		// ctx.moveTo(1.0, 0.0); // Punto inicial en (1,0) - punta de la nave en eje "x" -
-		// ctx.lineTo(-1.0, 1.0); // Dibujar línea del punto inicial al (-1,0)
-		// ctx.lineTo(-1.0, -1.0); // Dibujar línea del punto inicial al (-1,-1)
-		// ctx.closePath();
+		ctx.beginPath();
+		ctx.moveTo(1.0, 0.0); // Punto inicial en (1,0) - punta de la nave en eje "x" -
+		ctx.lineTo(-1.0, 1.0); // Dibujar línea del punto inicial al (-1,0)
+		ctx.lineTo(-1.0, -1.0); // Dibujar línea del punto inicial al (-1,-1)
+		ctx.closePath();
 
     // Relleno del triángulo
-		//ctx.fillStyle = this.color;
+		ctx.fillStyle = this.color;
     ctx.fill();
+
     // Recuper el contexto
-	ctx.restore();
+		ctx.restore();
 	}
 }
 
@@ -430,16 +431,16 @@ function keyHandler(event) {
   // Analizar eventos de teclado
   switch(event.key) {
     case "ArrowLeft": // Girar a la izquierda
-      ship.w -= 1;
+      ship.w -= 0.4;
       break;
     case "ArrowRight": // Girar a la derecha
-      ship.w  += 1;
+      ship.w  += 0.4;
       break;
     case "ArrowUp": // Avanzar
-      ship.v += 0.05;
+      ship.v += 0.09;
       break;
     case "ArrowDown": // Retroceder
-      ship.v -= 0.05;
+      ship.v -= 0.09;
       break;
 
     case "v": // Disparar
@@ -450,7 +451,7 @@ function keyHandler(event) {
       var shotPosY = ship.y;
       var shotDistToCentX = 15;
       var shotDistToCentY = shotDistToCentX / 2;
-      var shotColor = 'yellow';
+      var shotColor = 'greenyellow';
       var shotVel = 1.0;
       var shotAngle = ship.theta; // Mismo ángulo que la nave
 
