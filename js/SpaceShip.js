@@ -2,11 +2,6 @@
 ==                                                                            ==
 ==                      -------   ASTEROIDS   ------                          ==
 ==                                                                            ==
-==                                                                            ==
-==   Álvaro Moles Vinader                                                     ==
-==   Gráficos y Visualiazación en 3D                                          ==
-==   Grado en Ingeniería en Sistemas Audiovisuales y Multimedia               ==
-==   a.moles@alumnos.urjc.es                                                  ==
 ==============================================================================*/
 var canvas;
 var ctx;
@@ -436,16 +431,16 @@ function keyHandler(event) {
   // Analizar eventos de teclado
   switch(event.key) {
     case "ArrowLeft": // Girar a la izquierda
-      ship.w -= 0.1;
+      ship.w -= 1;
       break;
     case "ArrowRight": // Girar a la derecha
-      ship.w  += 0.1;
+      ship.w  += 1;
       break;
     case "ArrowUp": // Avanzar
-      ship.v += 0.01;
+      ship.v += 0.05;
       break;
     case "ArrowDown": // Retroceder
-      ship.v -= 0.01;
+      ship.v -= 0.05;
       break;
 
     case "v": // Disparar
@@ -456,7 +451,7 @@ function keyHandler(event) {
       var shotPosY = ship.y;
       var shotDistToCentX = 15;
       var shotDistToCentY = shotDistToCentX / 2;
-      var shotColor = 'rgba(255, 0, 0, 1.0)';
+      var shotColor = 'yellow';
       var shotVel = 1.0;
       var shotAngle = ship.theta; // Mismo ángulo que la nave
 
