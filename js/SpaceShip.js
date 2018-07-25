@@ -99,30 +99,29 @@ function Triangle (id, x, y, distToCentX, distToCentY, color, v, theta) {
     }
 	}
 
-  // Método para dibujar el triángulo
+  // Método para dibujar la nave
 	this.draw = function() {
-
+    var nave = document.getElementById('spaceship');
     // Salvar el contexto
-		ctx.save();
-
-    // Traslación, rotación y escalado del triángulo
-		ctx.translate(this.x, this.y);
-		ctx.rotate(this.theta);
-		ctx.scale(this.distToCentX, this.distToCentY);
+	ctx.save();
+    ctx.drawImage(nave, this.x, this.y,90,90);    
+    // Traslación, rotación y escalado de la nave
+	ctx.translate(this.x, this.y);
+	ctx.rotate(this.theta);
+	ctx.scale(this.distToCentX, this.distToCentY);
 
     // Trazado del triángulo
-		ctx.beginPath();
-		ctx.moveTo(1.0, 0.0); // Punto inicial en (1,0) - punta de la nave en eje "x" -
-		ctx.lineTo(-1.0, 1.0); // Dibujar línea del punto inicial al (-1,0)
-		ctx.lineTo(-1.0, -1.0); // Dibujar línea del punto inicial al (-1,-1)
-		ctx.closePath();
+		// ctx.beginPath();
+		// ctx.moveTo(1.0, 0.0); // Punto inicial en (1,0) - punta de la nave en eje "x" -
+		// ctx.lineTo(-1.0, 1.0); // Dibujar línea del punto inicial al (-1,0)
+		// ctx.lineTo(-1.0, -1.0); // Dibujar línea del punto inicial al (-1,-1)
+		// ctx.closePath();
 
     // Relleno del triángulo
-		ctx.fillStyle = this.color;
+		//ctx.fillStyle = this.color;
     ctx.fill();
-
     // Recuper el contexto
-		ctx.restore();
+	ctx.restore();
 	}
 }
 

@@ -2,3 +2,6 @@
     display: block;
     margin: 60px auto 0;
 }
+#spaceship{
+    display:none;
+}
